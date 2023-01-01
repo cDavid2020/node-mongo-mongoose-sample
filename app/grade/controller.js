@@ -10,7 +10,9 @@ export default {
     return Grade.create({ name, scores: [] });
   },
   async addScore(studentId, score) {
-    const student = await Grade.findById(studentId);
+    // Using 'exec' is optional, but gives better stack traces
+    // https://mongoosejs.com/docs/promises.html#should-you-use-exec-with-await
+    const student = await Grade.findById(studentId).exec();
     student.scores.push(score);
     return student.save();
   },
