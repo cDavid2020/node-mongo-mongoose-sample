@@ -4,7 +4,7 @@ import Score from "../score/Score.js";
 export default model(
   "Grade",
   new Schema({
-    name: String,
+    name: { type: String, required: true, unique: true },
     scores: [Score.schema],
   })
 );
