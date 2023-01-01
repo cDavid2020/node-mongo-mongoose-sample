@@ -1,1 +1,5 @@
-export const add2Nums = (num1, num2) => num1 + num2;
+import GradeController from "./grade/controller.js";
+
+GradeController.createStudent("John Doe").then((student) => {
+  console.log(student);
+});
